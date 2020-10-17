@@ -1,0 +1,7 @@
+rootProject.name = 'LibraryManagement'
+include 'LibraryRepository'
+include 'LibraryBL'
+include 'LibraryWeb'
+include 'LibraryDTO'
+include 'LibraryModel'
+
