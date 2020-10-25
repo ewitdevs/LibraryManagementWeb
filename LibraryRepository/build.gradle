@@ -10,5 +10,6 @@ repositories {
 }
 
 dependencies {
- implementation project(':LibraryModel')
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation project(':LibraryModel')
 }

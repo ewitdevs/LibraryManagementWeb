@@ -20,24 +20,29 @@ allprojects  {
     repositories {
        mavenCentral()
    }
-    apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
-
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-        implementation 'org.springframework.boot:spring-boot-starter-groovy-templates'
+
         implementation 'org.springframework.boot:spring-boot-starter-web'
+
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
     }
 
     java {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_15
+        targetCompatibility JavaVersion.VERSION_15
     }
 
     test {
@@ -53,7 +58,3 @@ subprojects {
 
 
 }
-
-
-
-
