@@ -1,4 +1,4 @@
-package com.ewit.libraryweb.controllers;
+package com.ewit.librarymanagement.libraryweb.controllers;
 
 import com.ewit.librarymanagement.librarybl.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

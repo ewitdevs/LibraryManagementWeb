@@ -6,9 +6,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "book_quantity_lent")
-@Data
-@AllArgsConstructor
+@Table(name = "book_quantity_lents")
+@Getter
+@Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
@@ -25,7 +25,18 @@ public class BookQuantityLent extends BaseModel {
     private boolean isReturned;
 
     @Lob
-    @Column(columnDefinition = "CLOB")
     private String review;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @MapsId
+    private BookQuantity bookQuantity;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_lend_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private BookLend bookLend;
 
 }

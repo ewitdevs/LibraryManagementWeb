@@ -1,23 +1,41 @@
 package com.ewit.librarymanagement.librarymodel.models;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "book_quantities")
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class BookQuantity extends BaseModel {
-    private String isbn;
-    @Column(name = "access_code", unique = true)
+
+    @Column(name = "book_isbn")
+    private String bookIsbn;
+
+    @Column(name = "access_code")
     private String accessCode;
+
     @Enumerated(EnumType.STRING)
-    private BookCondition condition;
+    @Column(name = "book_condition")
+    private BookCondition bookCondition;
+
     @Enumerated(EnumType.STRING)
-    private BookStatus status;
+    @Column(name = "book_status")
+    private BookStatus bookStatus;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private Book book;
+
+    @OneToOne(mappedBy = "bookQuantity")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private BookQuantityLent bookQuantityLent;
+
 }

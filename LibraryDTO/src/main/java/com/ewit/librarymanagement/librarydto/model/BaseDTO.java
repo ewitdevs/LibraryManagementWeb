@@ -1,4 +1,4 @@
-package com.ewit.librarydto.model;
+package com.ewit.librarymanagement.librarydto.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

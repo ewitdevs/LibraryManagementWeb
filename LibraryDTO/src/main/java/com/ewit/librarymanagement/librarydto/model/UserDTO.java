@@ -1,4 +1,4 @@
-package com.ewit.librarydto.model;
+package com.ewit.librarymanagement.librarydto.model;
 
 
 import com.ewit.librarymanagement.librarymodel.models.User;

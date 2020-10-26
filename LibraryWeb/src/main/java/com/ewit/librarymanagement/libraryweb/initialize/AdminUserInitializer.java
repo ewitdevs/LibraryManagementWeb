@@ -1,4 +1,4 @@
-package com.ewit.libraryweb.initialize;
+package com.ewit.librarymanagement.libraryweb.initialize;
 
 import com.ewit.librarymanagement.librarybl.service.InitUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AdminUserInitializer implements ApplicationRunner {
+public class AdminUserInitializer implements CommandLineRunner {
 
     private final InitUserService initUserService;
 
@@ -18,7 +18,7 @@ public class AdminUserInitializer implements ApplicationRunner {
 
 
     @Override
-    public void run(ApplicationArguments args) throws Exception {
+    public void run(String... args) throws Exception {
         initUserService.initializeUser();
     }
 }

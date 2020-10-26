@@ -2,17 +2,15 @@ package com.ewit.librarymanagement.librarymodel.models;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Table(name = "books_lend")
-@Data
-@AllArgsConstructor
+@Table(name = "book_lends")
+@Getter
+@Setter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
@@ -34,9 +32,25 @@ public class BookLend extends BaseModel {
     private boolean isFineCollected;
 
     @Lob
-    @Column(columnDefinition = "CLOB")
     private String review;
 
     @Column(name = "is_completely_returned")
     private boolean isCompletelyReturned;
+
+    @OneToMany(mappedBy = "bookLend")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<BookQuantityLent> bookQuantityLents;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "issuer_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private User issuer;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "receiver_id")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private User receiver;
 }

@@ -3,14 +3,16 @@ package com.ewit.librarymanagement.librarymodel.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
-@EqualsAndHashCode(callSuper = true)
-@ToString(callSuper = true)
+
 @Entity
 @Table(name = "users")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class User extends BaseModel{
 
     @Column(name="name")
@@ -24,4 +26,13 @@ public class User extends BaseModel{
     private CourseYear year;
     private int allowedBooks;
 
+    @OneToMany(mappedBy = "issuer")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<BookLend> issuedBooks;
+
+    @OneToMany(mappedBy = "receiver")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<BookLend> receivedBooks;
 }

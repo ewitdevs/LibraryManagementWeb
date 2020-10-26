@@ -7,4 +7,6 @@ repositories {
 
 dependencies {
     implementation project(':LibraryModel')
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }

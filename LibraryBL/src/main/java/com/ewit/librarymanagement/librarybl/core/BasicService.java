@@ -1,11 +1,10 @@
-package com.ewit.librarybl.core;
+package com.ewit.librarymanagement.librarybl.core;
 
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public interface BasicService<T, PK> {
 
     List<T> findAll();
