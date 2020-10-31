@@ -1,6 +1,4 @@
-plugins {
-    id 'java'
-}
+
 
 group 'com.ewit'
 version '1.0'

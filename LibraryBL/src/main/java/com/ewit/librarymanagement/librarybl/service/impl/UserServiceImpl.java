@@ -2,6 +2,7 @@ package com.ewit.librarymanagement.librarybl.service.impl;
 
 import com.ewit.librarymanagement.librarybl.service.InitUserService;
 import com.ewit.librarymanagement.librarybl.service.UserService;
+import com.ewit.librarymanagement.libraryconverter.converter.UserConverter;
 import com.ewit.librarymanagement.librarydto.model.UserDTO;
 import com.ewit.librarymanagement.librarymodel.models.User;
 import com.ewit.librarymanagement.librarymodel.models.UserType;
@@ -14,9 +15,10 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService, InitUserService {
     private final UserRepository repository;
-
-    public UserServiceImpl(UserRepository repository) {
+    private final UserConverter converter;
+    public UserServiceImpl(UserRepository repository, UserConverter converter) {
         this.repository = repository;
+        this.converter = converter;
     }
 
     @Override

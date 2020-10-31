@@ -18,6 +18,10 @@ public class User extends BaseModel{
     @Column(name="name")
     private String name;
     private String password;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
     @Enumerated(EnumType.STRING)
     private UserType type;
     private boolean canLogin = false;

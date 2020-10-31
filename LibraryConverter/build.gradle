@@ -1,0 +1,18 @@
+
+group 'com.ewit'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation project(':LibraryModel')
+    implementation project(':LibraryDTO')
+}
+
+
+test {
+    useJUnitPlatform()
+}

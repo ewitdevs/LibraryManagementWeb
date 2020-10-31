@@ -4,4 +4,5 @@ include 'LibraryBL'
 include 'LibraryWeb'
 include 'LibraryDTO'
 include 'LibraryModel'
+include 'LibraryConverter'
 

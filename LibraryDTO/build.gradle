@@ -1,8 +1,13 @@
+plugins{
+    id 'java-library'
+}
+
 group 'com.ewit'
 version '1.0'
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
