@@ -2,24 +2,36 @@ package com.ewit.librarymanagement.librarybl.service.impl;
 
 import com.ewit.librarymanagement.librarybl.service.InitUserService;
 import com.ewit.librarymanagement.librarybl.service.UserService;
-import com.ewit.librarymanagement.libraryconverter.converter.UserConverter;
 import com.ewit.librarymanagement.librarydto.model.UserDTO;
 import com.ewit.librarymanagement.librarymodel.models.User;
 import com.ewit.librarymanagement.librarymodel.models.UserType;
 import com.ewit.librarymanagement.libraryrepository.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService, InitUserService {
+public class UserServiceImpl implements UserService{
+
+
+    @Value("${secure.username}")
+    private String username;
+
+    @Value("${secure.default-password}")
+    private String defaultPassword;
+
     private final UserRepository repository;
-    private final UserConverter converter;
-    public UserServiceImpl(UserRepository repository, UserConverter converter) {
+    private final PasswordEncoder passwordEncoder;
+
+    public UserServiceImpl(UserRepository repository, PasswordEncoder passwordEncoder) {
         this.repository = repository;
-        this.converter = converter;
+        this.passwordEncoder = passwordEncoder;
     }
+
 
     @Override
     public List<UserDTO> findAll() {
@@ -49,11 +61,5 @@ public class UserServiceImpl implements UserService, InitUserService {
     @Override
     public boolean deleteById(Long id) {
         return false;
-    }
-
-    @Override
-    public void initializeUser() {
-      List<User> users = repository.findAllByType(UserType.ADMIN);
-        System.out.println("Admin User "+users);
     }
 }

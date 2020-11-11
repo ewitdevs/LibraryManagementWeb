@@ -1,6 +1,7 @@
 package com.ewit.librarymanagement.librarymodel.models;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@SuperBuilder
 public class BookQuantity extends BaseModel {
 
     @Column(name = "book_isbn")

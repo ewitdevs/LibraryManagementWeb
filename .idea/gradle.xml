@@ -11,8 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/LibraryBL" />
-            <option value="$PROJECT_DIR$/LibraryConverter" />
             <option value="$PROJECT_DIR$/LibraryDTO" />
+            <option value="$PROJECT_DIR$/LibraryMapper" />
             <option value="$PROJECT_DIR$/LibraryModel" />
             <option value="$PROJECT_DIR$/LibraryRepository" />
             <option value="$PROJECT_DIR$/LibraryWeb" />

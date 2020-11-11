@@ -1,6 +1,7 @@
 package com.ewit.librarymanagement.librarymodel.models;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -15,6 +16,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @NoArgsConstructor
+@SuperBuilder
 public class Category extends BaseModel{
     private String name;
 

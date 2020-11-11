@@ -1,6 +1,7 @@
 package com.ewit.librarymanagement.librarymodel.models;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@SuperBuilder
 public class BookLend extends BaseModel {
 
     @Column(name = "lend_date")

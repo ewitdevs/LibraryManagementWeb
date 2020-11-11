@@ -1,6 +1,7 @@
 package com.ewit.librarymanagement.librarymodel.models;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
+@SuperBuilder
 public class BookQuantityLent extends BaseModel {
 
     @Enumerated(EnumType.STRING)

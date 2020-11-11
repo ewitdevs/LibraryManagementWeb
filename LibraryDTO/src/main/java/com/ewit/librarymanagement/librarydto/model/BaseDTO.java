@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class BaseDTO<T, M> implements ModelMapper<T,M> {
+public abstract class BaseDTO<T, M> {
     private Long id;
     private LocalDateTime createdAt;
     private LocalDateTime updateAt;

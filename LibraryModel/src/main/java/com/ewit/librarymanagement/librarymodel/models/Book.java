@@ -3,6 +3,7 @@ package com.ewit.librarymanagement.librarymodel.models;
 
 import lombok.*;
 import lombok.experimental.FieldNameConstants;
+import lombok.experimental.SuperBuilder;
 import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @NoArgsConstructor
+@SuperBuilder
 public class Book extends BaseModel {
 
     @NonNull

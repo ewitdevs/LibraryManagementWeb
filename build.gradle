@@ -31,15 +31,25 @@ allprojects {
     dependencies {
 
         def junitVersion = "5.7.0"
+        def jjwtVersion = "0.11.2"
 
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
         implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'javax.validation:validation-api:2.0.1.Final'
+
+        implementation "io.jsonwebtoken:jjwt-api:$jjwtVersion"
+        implementation "io.jsonwebtoken:jjwt-impl:$jjwtVersion"
+        runtimeOnly "io.jsonwebtoken:jjwt-jackson:$jjwtVersion"
 
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
         testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
-
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        implementation 'org.mapstruct:mapstruct:1.4.1.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
     }
 
     java {

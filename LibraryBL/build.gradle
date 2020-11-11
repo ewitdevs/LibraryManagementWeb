@@ -10,5 +10,5 @@ dependencies {
     implementation project(':LibraryRepository')
     implementation project(':LibraryModel')
     implementation project(':LibraryDTO')
-    implementation project(':LibraryConverter')
+    implementation project(':LibraryMapper')
 }
