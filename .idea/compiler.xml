@@ -11,7 +11,7 @@
         </processorPath>
         <module name="LibraryManagement.LibraryDTO.main" />
         <module name="LibraryManagement.main" />
-        <module name="LibraryManagement.LibraryWeb.main" />
+        <module name="LibraryManagement.LibraryAPI.main" />
         <module name="LibraryManagement.LibraryMapper.main" />
         <module name="LibraryManagement.LibraryBL.main" />
         <module name="LibraryManagement.LibraryRepository.main" />

@@ -1,36 +1,20 @@
 package com.ewit.librarymanagement.librarybl.service.impl;
 
-import com.ewit.librarymanagement.librarybl.service.InitUserService;
 import com.ewit.librarymanagement.librarybl.service.UserService;
 import com.ewit.librarymanagement.librarydto.model.UserDTO;
-import com.ewit.librarymanagement.librarymodel.models.User;
-import com.ewit.librarymanagement.librarymodel.models.UserType;
 import com.ewit.librarymanagement.libraryrepository.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService{
 
-
-    @Value("${secure.username}")
-    private String username;
-
-    @Value("${secure.default-password}")
-    private String defaultPassword;
-
     private final UserRepository repository;
-    private final PasswordEncoder passwordEncoder;
-
-    public UserServiceImpl(UserRepository repository, PasswordEncoder passwordEncoder) {
-        this.repository = repository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
 
     @Override

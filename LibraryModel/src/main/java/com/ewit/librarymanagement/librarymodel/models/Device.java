@@ -29,4 +29,7 @@ public class Device extends BaseModel{
     @Column(name = "os_version")
     private String osVersion;
 
+    @Column(name = "device_token")
+    private String deviceToken;
+
 }
