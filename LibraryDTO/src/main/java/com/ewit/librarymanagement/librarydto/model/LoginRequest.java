@@ -5,14 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.lang.NonNull;
 
+import javax.validation.constraints.NotBlank;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginRequest {
 
-    @NonNull
+    @NotBlank
     private String username;
-    @NonNull
+    @NotBlank
     private String password;
 }

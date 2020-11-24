@@ -17,33 +17,5 @@ public class UserServiceImpl implements UserService{
     private final UserRepository repository;
 
 
-    @Override
-    public List<UserDTO> findAll() {
-        return null;
-    }
 
-    @Override
-    public Optional<UserDTO> findById(Long id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<UserDTO> save(Long id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<UserDTO> update(UserDTO userDTO, Long id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public boolean delete(UserDTO userDTO) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteById(Long id) {
-        return false;
-    }
 }
