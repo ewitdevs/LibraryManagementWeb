@@ -1,18 +1,18 @@
 package com.ewit.librarymanagement.librarydto.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RefreshTokenRequest {
+@Builder
+public class ErrorResponseDTO<E> {
 
-    @NotBlank
-    private String refreshToken;
-    @NotBlank
-    private String username;
+    private String message;
+    private boolean successful;
+    private E error;
+    private int statusCode;
 }

@@ -1,18 +1,16 @@
 package com.ewit.librarymanagement.librarydto.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ResponseDTO<T> {
-
+@SuperBuilder
+@Data
+public class ResponseDTO {
     private String message;
     private boolean successful;
-    private T data;
     private int statusCode;
 }
