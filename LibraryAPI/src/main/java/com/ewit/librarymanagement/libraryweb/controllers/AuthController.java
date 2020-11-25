@@ -36,7 +36,7 @@ public class AuthController {
                 .build());
     }
 
-    @PostMapping("/refresh/{token}")
+    @PostMapping("/refresh")
     public ResponseEntity<SuccessResponseDTO<AuthenticationResponse>> refreshToken(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest){
         return ResponseEntity.ok(SuccessResponseDTO.<AuthenticationResponse>builder()
                 .message("Success")
