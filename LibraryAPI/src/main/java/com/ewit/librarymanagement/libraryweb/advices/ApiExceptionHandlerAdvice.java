@@ -1,5 +1,6 @@
 package com.ewit.librarymanagement.libraryweb.advices;
 
+import com.ewit.librarymanagement.librarybl.exceptions.NotFoundException;
 import com.ewit.librarymanagement.librarydto.model.ErrorDataDTO;
 import com.ewit.librarymanagement.librarydto.model.ErrorResponseDTO;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -22,10 +23,28 @@ import java.util.stream.Collectors;
 @ResponseBody
 public class ApiExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 
+    @ExceptionHandler({NotFoundException.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseBody
+    public ResponseEntity<ErrorResponseDTO<ErrorDataDTO>> handNotFoundException(NotFoundException exception){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+                ErrorResponseDTO.<ErrorDataDTO>builder()
+                        .successful(false)
+                        .error(ErrorDataDTO.builder()
+                                .message("Not Found")
+                                .details(List.of(exception.getMessage()))
+                                .build()
+                        )
+                        .message("Failed")
+                        .statusCode(HttpStatus.NOT_FOUND.value())
+                        .build()
+        );
+    }
+
     @ExceptionHandler({Exception.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public ResponseEntity<ErrorResponseDTO<ErrorDataDTO>> handleConstraintViolationException(Exception exception){
+    public ResponseEntity<ErrorResponseDTO<ErrorDataDTO>> handleGenericException(Exception exception){
         return ResponseEntity.badRequest().body(
                 ErrorResponseDTO.<ErrorDataDTO>builder()
                         .successful(false)
